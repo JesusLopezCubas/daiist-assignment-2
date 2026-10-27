@@ -157,7 +157,7 @@
     "fliplr": 0.0,
     "flipud": 0.0,
     "device": "Tesla T4",
-    "minutes": 10.7
+    "minutes": 10.4
   },
   "detection_test": {
     "mAP50": 0.402,
