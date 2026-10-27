@@ -56,9 +56,9 @@
         "charts_with_no_pattern": 183,
         "charts_with_both_directions": 166,
         "chart_truth": {
-          "LONG": 207,
-          "SHORT": 424,
-          "NONE": 183
+          "LONG": 137,
+          "SHORT": 328,
+          "NONE": 349
         },
         "instances": {
           "double bottom": 338,
@@ -87,9 +87,9 @@
         "charts_with_no_pattern": 27,
         "charts_with_both_directions": 56,
         "chart_truth": {
-          "LONG": 42,
-          "SHORT": 79,
-          "NONE": 27
+          "LONG": 13,
+          "SHORT": 52,
+          "NONE": 83
         },
         "instances": {
           "double bottom": 75,
@@ -118,9 +118,9 @@
         "charts_with_no_pattern": 15,
         "charts_with_both_directions": 36,
         "chart_truth": {
-          "LONG": 47,
-          "SHORT": 86,
-          "NONE": 15
+          "LONG": 27,
+          "SHORT": 70,
+          "NONE": 51
         },
         "instances": {
           "double bottom": 66,
@@ -157,7 +157,7 @@
     "fliplr": 0.0,
     "flipud": 0.0,
     "device": "Tesla T4",
-    "minutes": 10.4
+    "minutes": 10.5
   },
   "detection_test": {
     "mAP50": 0.402,
@@ -235,127 +235,117 @@
       "model": "Finetuned yolo11s",
       "class_mAP50": 0.402,
       "class_agnostic_AP50": 0.501,
-      "threshold_from_valid": 0.87,
-      "direction_accuracy": 0.1554,
-      "pattern_precision": 1.0,
-      "pattern_recall": 0.0677,
-      "cost_per_1000_eur": 1290540.54
+      "threshold_from_valid": 0.6,
+      "direction_accuracy": 0.4257,
+      "pattern_precision": 0.5915,
+      "pattern_recall": 0.433,
+      "cost_per_1000_eur": 758685.06
     },
     {
       "model": "COCO yolo11s zero-shot",
       "class_mAP50": 0.0,
       "class_agnostic_AP50": 0.0,
       "threshold_from_valid": 0.06,
-      "direction_accuracy": 0.1081,
+      "direction_accuracy": 0.3514,
       "pattern_precision": 0.6667,
-      "pattern_recall": 0.015,
-      "cost_per_1000_eur": 1334459.46
+      "pattern_recall": 0.0206,
+      "cost_per_1000_eur": 845802.51
     },
     {
       "model": "Predict nothing",
       "class_mAP50": 0.0,
       "class_agnostic_AP50": 0.0,
       "threshold_from_valid": null,
-      "direction_accuracy": 0.1014,
+      "direction_accuracy": 0.3446,
       "pattern_precision": NaN,
       "pattern_recall": 0.0,
-      "cost_per_1000_eur": 1347972.97
-    },
-    {
-      "model": "Always SHORT (majority chart label)",
-      "class_mAP50": 0.0,
-      "class_agnostic_AP50": 0.0,
-      "threshold_from_valid": null,
-      "direction_accuracy": 0.5811,
-      "pattern_precision": 0.8986,
-      "pattern_recall": 1.0,
-      "cost_per_1000_eur": 1689189.19
+      "cost_per_1000_eur": 855000.0
     }
   ],
   "operating_point": {
     "chosen_on": "valid",
-    "single_threshold": 0.87,
+    "single_threshold": 0.6,
     "band": {
-      "t_low": 0.78,
-      "t_high": 0.87,
+      "t_low": 0.49,
+      "t_high": 0.6,
       "staffing_bound": true
     },
-    "base_rate_used": 0.8986486486486487,
-    "base_rate_in_test_data": 0.8986486486486487,
+    "base_rate_used": 0.57,
+    "base_rate_in_test_data": 0.6554054054054054,
     "base_rate_reweighting_possible": true,
     "recommended_setup": "Model + review band",
     "recommended_setup_note": "cheapest setup the analysts can staff on the validation days"
   },
   "test_results": {
     "model_alone": {
-      "cost_per_1000_eur": 1290540.54,
+      "cost_per_1000_eur": 758685.06,
       "outcomes_per_1000": {
-        "correct trades": 54.05405405405405,
-        "wrong direction trades": 6.756756756756756,
-        "spurious trades": 0.0,
-        "missed setups": 837.8378378378378,
-        "correct passes": 101.35135135135131,
+        "correct trades": 240.92783505154637,
+        "wrong direction trades": 5.876288659793814,
+        "spurious trades": 244.50980392156865,
+        "missed setups": 323.19587628865975,
+        "correct passes": 185.4901960784314,
         "sent to review": 0.0
       },
       "confusion": [
         [
-          0,
+          5,
           1,
-          46,
+          21,
           0
         ],
         [
           0,
-          8,
-          78,
+          36,
+          34,
           0
         ],
         [
-          0,
-          0,
-          15,
+          5,
+          24,
+          22,
           0
         ]
       ],
       "metrics": {
-        "accuracy": 0.1554054054054054,
-        "LONG_precision": NaN,
-        "LONG_recall": 0.0,
-        "SHORT_precision": 0.8888888888888888,
-        "SHORT_recall": 0.09302325581395349,
-        "pattern_precision": 1.0,
-        "pattern_recall": 0.06766917293233082
+        "accuracy": 0.42567567567567566,
+        "LONG_precision": 0.5,
+        "LONG_recall": 0.18518518518518517,
+        "SHORT_precision": 0.5901639344262295,
+        "SHORT_recall": 0.5142857142857142,
+        "pattern_precision": 0.5915492957746479,
+        "pattern_recall": 0.4329896907216495
       }
     },
     "model_plus_review": {
-      "cost_per_1000_eur": 1080976.35,
-      "review_share": 0.1554,
+      "cost_per_1000_eur": 685433.8,
+      "review_share": 0.1178,
       "outcomes_per_1000": {
-        "correct trades": 54.05405405405405,
-        "wrong direction trades": 6.756756756756756,
-        "spurious trades": 0.0,
-        "missed setups": 682.4324324324325,
-        "correct passes": 101.35135135135131,
-        "sent to review": 155.4054054054054
+        "correct trades": 240.92783505154637,
+        "wrong direction trades": 5.876288659793814,
+        "spurious trades": 244.50980392156865,
+        "missed setups": 264.4329896907216,
+        "correct passes": 126.47058823529414,
+        "sent to review": 117.78249444107541
       },
       "confusion": [
         [
-          0,
+          5,
           1,
-          38,
+          19,
+          2
+        ],
+        [
+          0,
+          36,
+          26,
           8
         ],
         [
-          0,
-          8,
-          63,
-          15
-        ],
-        [
-          0,
-          0,
+          5,
+          24,
           15,
-          0
+          7
         ]
       ]
     },
@@ -363,8 +353,8 @@
       {
         "setup": "do_nothing",
         "option": "Do nothing (never trade)",
-        "cost_per_1000_eur": 1347972.97,
-        "cost_per_day_eur": 673986.49,
+        "cost_per_1000_eur": 855000.0,
+        "cost_per_day_eur": 427500.0,
         "review_share": 0.0,
         "reviews_per_day": 0.0,
         "analysts_needed": 0.0,
@@ -373,8 +363,8 @@
       {
         "setup": "analyst_all",
         "option": "Analyst checks every chart",
-        "cost_per_1000_eur": 146432.43,
-        "cost_per_day_eur": 73216.22,
+        "cost_per_1000_eur": 130000.0,
+        "cost_per_day_eur": 65000.0,
         "review_share": 1.0,
         "reviews_per_day": 500.0,
         "analysts_needed": 16.67,
@@ -382,9 +372,9 @@
       },
       {
         "setup": "model_alone",
-        "option": "Model alone (t = 0.87)",
-        "cost_per_1000_eur": 1290540.54,
-        "cost_per_day_eur": 645270.27,
+        "option": "Model alone (t = 0.60)",
+        "cost_per_1000_eur": 758685.06,
+        "cost_per_day_eur": 379342.53,
         "review_share": 0.0,
         "reviews_per_day": 0.0,
         "analysts_needed": 0.0,
@@ -392,19 +382,19 @@
       },
       {
         "setup": "model_band",
-        "option": "Model + review band (0.78 to 0.87)",
-        "cost_per_1000_eur": 1080976.35,
-        "cost_per_day_eur": 540488.18,
-        "review_share": 0.1554,
-        "reviews_per_day": 77.7,
-        "analysts_needed": 2.59,
-        "staffable": false
+        "option": "Model + review band (0.49 to 0.60)",
+        "cost_per_1000_eur": 685433.8,
+        "cost_per_day_eur": 342716.9,
+        "review_share": 0.1178,
+        "reviews_per_day": 58.9,
+        "analysts_needed": 1.96,
+        "staffable": true
       }
     ]
   },
   "economics_used": {
     "ANALYST_COST_PER_HOUR": 45.0,
-    "BASE_RATE": null,
+    "BASE_RATE": 0.57,
     "BOOK_EUR": 100000000,
     "CHARTS_PER_DAY": 500,
     "COSTS_ARE_PLACEHOLDERS": false,
@@ -425,39 +415,39 @@
   "examples": [
     "aapl_2m_2023-09-28_to_2023-09-29_png.rf.3afee1c6bf94b8923bf2584bd3e64f4e.jpg",
     "aapl_2m_2023-09-29_to_2023-09-30_png.rf.b4461911cf2567f56a4f9f271cbad275.jpg",
-    "acre_2m_2023-09-29_to_2023-09-30_png.rf.295437cc77960426e7727a6d65d99364.jpg",
-    "acn_2m_2023-09-28_to_2023-09-29_png.rf.15575c04d8db1ee9f2e6ab528d043b25.jpg"
+    "acn_2m_2023-09-28_to_2023-09-29_png.rf.15575c04d8db1ee9f2e6ab528d043b25.jpg",
+    "acn_2m_2023-09-29_to_2023-09-30_png.rf.5e60d0a98007e3ace558054c9bb18f17.jpg"
   ],
   "failures": [
     {
       "kind": "wrong direction",
       "image": "wrong_direction_1.png",
-      "caption": "wrong direction: ivr 2023-09-29, truth LONG, model says SHORT (top box double top at 0.94)"
+      "caption": "wrong direction: tsm 2023-09-29, truth LONG, model says SHORT (top box double top at 0.70)"
     },
     {
       "kind": "wrong direction",
       "image": "wrong_direction_2.png",
-      "caption": "wrong direction: para 2023-09-28, truth LONG, model says NONE (top box double top at 0.85)"
+      "caption": "wrong direction: ibm 2023-09-29, truth LONG, model says NONE (top box double top at 0.59)"
     },
     {
       "kind": "wrong direction",
       "image": "wrong_direction_3.png",
-      "caption": "wrong direction: pypl 2023-09-29, truth LONG, model says NONE (top box double top at 0.83)"
+      "caption": "wrong direction: qcom 2023-09-28, truth LONG, model says NONE (top box double top at 0.49)"
     },
     {
       "kind": "confident on a clean chart",
       "image": "confident_on_a_clean_chart_1.png",
-      "caption": "confident on a clean chart: gnl 2023-09-28, truth NONE, model says NONE (top box double top at 0.63)"
+      "caption": "confident on a clean chart: ivr 2023-09-29, truth NONE, model says SHORT (top box double top at 0.94)"
     },
     {
       "kind": "confident on a clean chart",
       "image": "confident_on_a_clean_chart_2.png",
-      "caption": "confident on a clean chart: zm 2023-09-29, truth NONE, model says NONE (top box head and shoulders at 0.57)"
+      "caption": "confident on a clean chart: t 2023-09-28, truth NONE, model says SHORT (top box double top at 0.90)"
     },
     {
       "kind": "confident on a clean chart",
       "image": "confident_on_a_clean_chart_3.png",
-      "caption": "confident on a clean chart: etsy 2023-09-29, truth NONE, model says NONE (top box double top at 0.56)"
+      "caption": "confident on a clean chart: sq 2023-09-28, truth NONE, model says SHORT (top box double top at 0.88)"
     },
     {
       "kind": "missed pattern",
