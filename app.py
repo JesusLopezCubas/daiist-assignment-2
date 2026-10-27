@@ -181,6 +181,28 @@ def chart_level_frame(t_high: float) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def box_confusion_frame(t: float) -> pd.DataFrame:
+    """Box-level confusion on the test days at confidence t (IoU 0.5)."""
+    m = costing.box_confusion(CHARTS["test"], len(NAMES), t)
+    labels = NAMES + ["background"]
+    frame = pd.DataFrame(m, columns=[f"predicted {n}" for n in labels])
+    frame.insert(0, "true", labels)
+    return frame
+
+
+def box_per_class_frame(t: float) -> pd.DataFrame:
+    m = costing.box_confusion(CHARTS["test"], len(NAMES), t)
+    return pd.DataFrame(costing.box_per_class(m, NAMES))
+
+
+def direction_frame() -> pd.DataFrame:
+    rows = []
+    for split in ("valid", "test"):
+        for r in costing.direction_breakdown(CHARTS[split], NAMES, config.CLASS_SIDE):
+            rows.append({"split": split, **r})
+    return pd.DataFrame(rows)
+
+
 def dataset_frame() -> pd.DataFrame:
     rows = []
     for split, d in SUMMARY["dataset"]["description"].items():
@@ -324,6 +346,8 @@ def refresh(t_low, t_high, base_rate):
         alternatives_frame(t_low, t_high, base_rate),
         cost_curve(t_low, t_high, base_rate),
         chart_level_frame(t_high),
+        box_per_class_frame(t_high),
+        box_confusion_frame(t_high),
     )
 
 
@@ -370,11 +394,15 @@ with gr.Blocks(title="Chart Pattern Desk") as demo:
         gr.Markdown("**Chart-level calls at t_high** (the positive class is a chart with a "
                     "tradable pattern)")
         chart_df = gr.Dataframe(interactive=False)
+        gr.Markdown("**Box-level precision and recall per class at t_high** (a box counts "
+                    "as found when it overlaps a true pattern by IoU 0.5 or more)")
+        box_class_df = gr.Dataframe(interactive=False)
+        gr.Markdown("**Box-level confusion matrix at t_high** (rows are the true class, columns "
+                    "the predicted class. The background row counts false alarms on empty chart "
+                    "area, the background column counts true patterns the model missed)")
+        box_cm_df = gr.Dataframe(interactive=False)
         gr.Markdown("**Baselines on the same test days**")
         gr.Dataframe(baselines_frame(), interactive=False)
-        cm_png = ART / "test_eval" / "confusion_matrix.png"
-        if cm_png.exists():
-            gr.Image(str(cm_png), label="Box-level confusion matrix (Ultralytics)", interactive=False)
 
     with gr.Tab("Where it fails"):
         gr.Markdown("The model's worst mistakes on the test days at the chosen threshold. "
@@ -384,6 +412,10 @@ with gr.Blocks(title="Chart Pattern Desk") as demo:
             gr.Gallery(value=FAILURES, columns=3, height="auto", show_label=False)
         else:
             gr.Markdown("No failures were saved by the training run.")
+        gr.Markdown("**Does the model's most confident box point the right way?** Charts whose "
+                    "patterns all point one way, against charts with both a bullish and a bearish "
+                    f"pattern (labelled by the rule '{config.MIXED_CHART_RULE}' in config.py).")
+        gr.Dataframe(direction_frame(), interactive=False)
 
     with gr.Tab("Sensitivity"):
         gr.Markdown(sensitivity_text())
@@ -416,7 +448,7 @@ with gr.Blocks(title="Chart Pattern Desk") as demo:
         gr.Markdown(f"Split by trading date. Train {', '.join(ds['split']['train_dates'])}.")
         gr.Dataframe(dataset_frame(), interactive=False)
 
-    outputs = [kpi_md, confusion_df, alternatives_df, curve, chart_df]
+    outputs = [kpi_md, confusion_df, alternatives_df, curve, chart_df, box_class_df, box_cm_df]
     for control in (t_low, t_high, base_rate):
         control.change(refresh, [t_low, t_high, base_rate], outputs)
     reset_btn.click(reset, [base_rate], [t_low, t_high])

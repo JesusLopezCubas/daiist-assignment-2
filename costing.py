@@ -51,8 +51,10 @@ def chart_truth(gt_boxes: list, names: list, class_side: dict, rule: str = "late
     sides = {side_of(names[int(b[0])], class_side) for b in gt_boxes}
     if len(sides) == 1:
         return sides.pop()
+    if rule == "none":  # a bullish and a bearish pattern: no clean trade
+        return NONE
     if rule != "latest":
-        raise ValueError(f"Unknown MIXED_CHART_RULE '{rule}'")
+        raise ValueError(f"Unknown MIXED_CHART_RULE '{rule}', use 'latest' or 'none'")
     latest = max(gt_boxes, key=lambda b: b[3])  # furthest right edge
     return side_of(names[int(latest[0])], class_side)
 
@@ -458,3 +460,80 @@ def sensitivity(val: ChartSet, test: ChartSet, econ: Economics) -> dict:
         "by_analysts_available": by_staff,
         "by_expected_move": by_move,
     }
+
+
+# --------------------------------------------------------------------------
+# Box-level evaluation at a chosen confidence
+# --------------------------------------------------------------------------
+
+def _iou(a, b) -> float:
+    ix = max(0.0, min(a[2], b[2]) - max(a[0], b[0]))
+    iy = max(0.0, min(a[3], b[3]) - max(a[1], b[1]))
+    inter = ix * iy
+    union = (a[2] - a[0]) * (a[3] - a[1]) + (b[2] - b[0]) * (b[3] - b[1]) - inter
+    return inter / union if union > 0 else 0.0
+
+
+def box_confusion(records: list, n_classes: int, conf: float, iou_min: float = 0.5) -> np.ndarray:
+    """Box confusion matrix at one confidence, rows = true class, cols = predicted.
+
+    The last row and column are "background": a box in the last row is a false
+    alarm on empty chart area, a count in the last column is a true pattern
+    the model missed. Matching ignores class first, like Ultralytics, so a
+    pattern found but called the wrong class shows up off the diagonal.
+    """
+    bg = n_classes
+    m = np.zeros((n_classes + 1, n_classes + 1), dtype=int)
+    for r in records:
+        gts = r["gt"]
+        used = [False] * len(gts)
+        for p in sorted((p for p in r["pred"] if p[1] >= conf), key=lambda p: -p[1]):
+            best, best_iou = -1, iou_min
+            for j, g in enumerate(gts):
+                if not used[j]:
+                    o = _iou(p[2:], g[1:])
+                    if o >= best_iou:
+                        best, best_iou = j, o
+            if best >= 0:
+                used[best] = True
+                m[int(gts[best][0]), int(p[0])] += 1
+            else:
+                m[bg, int(p[0])] += 1
+        for j, g in enumerate(gts):
+            if not used[j]:
+                m[int(g[0]), bg] += 1
+    return m
+
+
+def box_per_class(m: np.ndarray, names: list) -> list[dict]:
+    rows = []
+    for k, name in enumerate(names):
+        hit = m[k, k]
+        predicted = m[:, k].sum()
+        actual = m[k, :].sum()
+        rows.append({
+            "class": name,
+            "true boxes": int(actual),
+            "predicted boxes": int(predicted),
+            "precision": round(hit / predicted, 3) if predicted else float("nan"),
+            "recall": round(hit / actual, 3) if actual else float("nan"),
+        })
+    return rows
+
+
+def direction_breakdown(records: list, names: list, class_side: dict) -> list[dict]:
+    """How often the model's top box points the right way, on charts whose
+    patterns all agree versus charts with both a bullish and a bearish one."""
+    out = []
+    for label, keep in (("single-direction charts", lambda n: n == 1),
+                        ("charts with both directions", lambda n: n > 1)):
+        rs = [r for r in records if r["gt"] and r["pred"] and keep(
+            len({side_of(names[int(g[0])], class_side) for g in r["gt"]}))]
+        any_match = [r["side"] in {side_of(names[int(g[0])], class_side) for g in r["gt"]} for r in rs]
+        out.append({
+            "charts": label,
+            "count": len(rs),
+            "top box matches the chart label": round(float(np.mean([r["side"] == r["truth"] for r in rs])), 3) if rs else float("nan"),
+            "top box matches some true pattern": round(float(np.mean(any_match)), 3) if rs else float("nan"),
+        })
+    return out

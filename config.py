@@ -36,8 +36,11 @@ CLASS_SIDE = {
 
 # Some charts carry both a bullish and a bearish pattern. "latest" labels such
 # a chart by the pattern that finishes furthest to the right, i.e. the most
-# recent signal on the chart.
-MIXED_CHART_RULE = "latest"
+# recent signal on the chart. "none" labels it NO TRADE, because the signals
+# conflict and there is no clean trade. I chose "none": a trader who sees both
+# a bullish and a bearish pattern on one chart has no clean trade. I tested
+# "latest" too and report it as the alternative.
+MIXED_CHART_RULE = "none"
 
 # --------------------------------------------------------------------------
 # TRAINING
@@ -105,9 +108,10 @@ COST_CORRECT_TRADE = POSITION_EUR * max(ROUND_TRIP_COST - EXPECTED_MOVE, 0.0)
 COST_CORRECT_PASS = 0.0
 
 # Share of charts that really contain a tradable pattern in production.
-# None means "use the share in the test set", which overstates it if the
-# dataset was built around charts that had patterns. Set after the first run.
-BASE_RATE = None
+# 0.57 is the share of training-day charts with a clean, single-direction
+# pattern (465 of 814): the largest sample, and it never uses the test days.
+# None would use the test set's own share instead.
+BASE_RATE = 0.57
 
 # The review desk.
 CHARTS_PER_DAY = 500                 # a large-cap US universe, one chart per stock
