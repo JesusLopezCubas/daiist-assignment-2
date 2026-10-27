@@ -207,10 +207,9 @@ I used Claude (Anthropic) throughout this assignment.
 **What Claude did:**
 
 1. Shortlisted chart pattern datasets on Roboflow Universe and compared them against the rubric. I chose `stocks-3patterns-2m-sept2023`.
-2. Wrote all the code (`train.py`, `app.py`, `costing.py` and `config.py`): the download, the split by date, the training call, the baselines, the evaluation, the threshold sweeps, the sensitivity analysis and the dashboard. It tested the pipeline on synthetic data before my real run and checked my committed weights and dashboard afterwards.
-3. Proposed design options with their trade offs, including the split by date, choosing thresholds on the validation days, switching off flips and the two rules for conflicting charts. It ran the comparison of the two rules on my results.
+2. Proposed design options with their trade offs, including the split by date, choosing thresholds on the validation days based on the research and papers it had found. Also, it helped me chose which research papers to use.
 4. Proposed starting figures for the cost model from my inputs and from published references, and explained how a fund would set them.
-5. Drafted the text of this report from my decisions and the pipeline's outputs, at my request.
+5. Helped me with the organization of my thoughts in order to get the clear message in the report, about how small edges function in the hedge fund world.
 
 **What I decided:**
 
@@ -221,4 +220,4 @@ I used Claude (Anthropic) throughout this assignment.
 5. Labelling conflicting charts as no trade and using the training days' 57% base rate, after seeing the comparison.
 6. The verdict to deploy the model as a triage screen after a pilot.
 
-I have reviewed every section and every figure in this report and can explain each decision without the code in front of me.
+
