@@ -657,7 +657,9 @@ def main() -> None:
         "economics_used": {k: getattr(config, k) for k in dir(config) if k.isupper() and (
             k.startswith("COST") or k in {"BASE_RATE", "CHARTS_PER_DAY", "MINUTES_PER_REVIEW",
                                           "ANALYST_COST_PER_HOUR", "REVIEW_HOURS_PER_ANALYST_PER_DAY",
-                                          "MAX_ANALYSTS", "REVIEWER_ACCURACY"})},
+                                          "MAX_ANALYSTS", "REVIEWER_ACCURACY", "BOOK_EUR",
+                                          "POSITION_SHARE", "POSITION_EUR", "EXPECTED_MOVE",
+                                          "ROUND_TRIP_COST"})},
         "examples": examples,
         "failures": failures,
     }
@@ -679,6 +681,9 @@ def main() -> None:
           else "   model alone never beats doing nothing at any base rate")
     for sw in sens["best_setup_switches"]:
         print(f"   at base rate {sw['at_base_rate']:.2f} the best setup switches from {sw['from']} to {sw['to']}")
+    for r in sens["by_expected_move"]:
+        print(f"   expected move {r['expected_move']:.2%}: best setup {costing.SETUP_NAMES[r['best_setup']]}, "
+              f"\u20ac{r['best_cost_per_1000']:,.0f} per 1,000 charts")
     for c in sens["by_cost"]:
         print(f"   {c['assumption']} (€{c['base_value']:,.2f}): same answer from "
               f"{c['same_answer_from_x']}x to {c['same_answer_to_x']}x")

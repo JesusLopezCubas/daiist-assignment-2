@@ -91,6 +91,10 @@ class Economics:
     review_hours_per_analyst: float
     max_analysts: float
     reviewer_accuracy: float = 1.0  # chance the analyst makes the right call
+    # Optional inputs the costs were derived from, used to test the expected move
+    position_eur: float | None = None
+    expected_move: float | None = None
+    round_trip_cost: float | None = None
 
     @classmethod
     def from_config(cls, cfg, base_rate: float | None = "config") -> "Economics":
@@ -107,7 +111,19 @@ class Economics:
             review_hours_per_analyst=cfg.REVIEW_HOURS_PER_ANALYST_PER_DAY,
             max_analysts=cfg.MAX_ANALYSTS,
             reviewer_accuracy=getattr(cfg, "REVIEWER_ACCURACY", 1.0),
+            position_eur=getattr(cfg, "POSITION_EUR", None),
+            expected_move=getattr(cfg, "EXPECTED_MOVE", None),
+            round_trip_cost=getattr(cfg, "ROUND_TRIP_COST", None),
         )
+
+    def with_expected_move(self, move: float) -> "Economics":
+        """Same desk, different edge: re-derive the two costs that depend on it."""
+        p, c = self.position_eur, self.round_trip_cost
+        edge = max(move - c, 0.0)  # the perfect trader skips patterns that don't beat costs
+        return replace(self, expected_move=move,
+                       cost_missed=p * edge,
+                       cost_wrong_direction=p * (edge + move + c),
+                       cost_correct_trade=p * max(c - move, 0.0))
 
     def cost_table(self) -> np.ndarray:
         """Euros per chart, rows = truth (LONG, SHORT, NONE), cols = decision.
@@ -338,6 +354,7 @@ COST_ASSUMPTIONS = {
     "review_cost": "Analyst cost per review",
 }
 ACCURACIES = (0.6, 0.7, 0.8, 0.9, 0.95, 1.0)
+EXPECTED_MOVES = (0.001, 0.002, 0.003, 0.005, 0.0075, 0.01, 0.02, 0.035)
 ANALYST_COUNTS = (0.5, 1.0, 2.0, 3.0, 5.0)
 
 
@@ -419,6 +436,16 @@ def sensitivity(val: ChartSet, test: ChartSet, econ: Economics) -> dict:
                          "band": [c["band"]["t_low"], c["band"]["t_high"]],
                          "band_review_share": band_row["review_share"]})
 
+    # 4. The expected move, which sets both the missed-setup and the
+    #    wrong-direction cost. Below the trading cost, a real pattern loses money.
+    by_move = []
+    if None not in (econ.position_eur, econ.expected_move, econ.round_trip_cost):
+        for move in EXPECTED_MOVES:
+            c = compare_setups(val, test, econ.with_expected_move(move))
+            by_move.append({"expected_move": move, "best_setup": c["best"],
+                            "best_cost_per_1000": c["best_cost"], "t_single": c["t_single"],
+                            "band": [c["band"]["t_low"], c["band"]["t_high"]]})
+
     return {
         "base_case_best": base["best"],
         "base_case_cost_per_1000": base["best_cost"],
@@ -429,4 +456,5 @@ def sensitivity(val: ChartSet, test: ChartSet, econ: Economics) -> dict:
         "by_cost": by_cost,
         "by_reviewer_accuracy": by_accuracy,
         "by_analysts_available": by_staff,
+        "by_expected_move": by_move,
     }

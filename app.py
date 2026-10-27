@@ -298,6 +298,16 @@ def staffing_frame() -> pd.DataFrame:
                          for r in SENS["by_analysts_available"]])
 
 
+def move_frame() -> pd.DataFrame:
+    return pd.DataFrame([{
+        "expected move": f"{r['expected_move']:.2%}",
+        "best setup": costing.SETUP_NAMES[r["best_setup"]],
+        "cost per 1,000 charts": r["best_cost_per_1000"],
+        "model alone t": r["t_single"],
+        "band": f"{r['band'][0]:.2f} to {r['band'][1]:.2f}",
+    } for r in SENS.get("by_expected_move", [])])
+
+
 FAILURES = [(str(ART / "failures" / f["image"]), f["caption"]) for f in SUMMARY.get("failures", [])
             if (ART / "failures" / f["image"]).exists()]
 
@@ -381,6 +391,11 @@ with gr.Blocks(title="Chart Pattern Desk") as demo:
         gr.Markdown("**How far each cost can move before the recommended setup changes** "
                     "(at the assumed base rate)")
         gr.Dataframe(cost_robustness_frame(), interactive=False)
+        if SENS.get("by_expected_move"):
+            gr.Markdown(f"**Expected move on a real pattern** (yours: {config.EXPECTED_MOVE:.2%}, "
+                        f"trading costs {config.ROUND_TRIP_COST:.2%}). It sets both the "
+                        "missed setup and the wrong direction cost.")
+            gr.Dataframe(move_frame(), interactive=False)
         gr.Markdown("**Analyst accuracy on reviewed charts**")
         gr.Dataframe(accuracy_frame(), interactive=False)
         gr.Markdown("**Analysts available for the review queue**")

@@ -62,34 +62,61 @@ PREDICT_CONF_FLOOR = 0.001
 MAX_BOXES_SAVED_PER_CHART = 20
 
 # --------------------------------------------------------------------------
-# DECISION ECONOMICS  (placeholders: replace every figure with your own)
+# DECISION ECONOMICS
 # --------------------------------------------------------------------------
+# The desk: an end-of-day screen at a long/short equity fund. After the close
+# the model scans one full-day chart per stock. Flagged trades go on at the
+# next open, and an analyst reviews the unclear charts in the evening.
+#
 # One case = one chart = one stock on one day. For each chart the system does
 # one of four things: trade LONG, trade SHORT, NO TRADE, or send it to an
 # analyst (REVIEW).
 #
-# Costs are in euros per chart and measured against a perfect trader who
-# always gets the call right, so a correct call costs 0 by default.
+# Costs are in euros per chart, measured against a perfect trader who always
+# gets the call right, so a correct call costs 0.
+#
+# Figures proposed by Claude from my inputs and common fund practice, then
+# reviewed and approved by me. Every one is tested in the dashboard's
+# Sensitivity tab.
 
-COSTS_ARE_PLACEHOLDERS = True
+COSTS_ARE_PLACEHOLDERS = False
 
-COST_MISSED_SETUP = 300.0      # a real pattern, the system says NO TRADE
-COST_SPURIOUS_TRADE = 600.0    # no pattern, the system trades anyway
-COST_WRONG_DIRECTION = 1500.0  # a real pattern, the system trades the opposite side
-COST_CORRECT_TRADE = 0.0       # a real pattern, traded the right way
-COST_CORRECT_PASS = 0.0        # no pattern, NO TRADE
+BOOK_EUR = 100_000_000      # a mid-sized long/short fund
+POSITION_SHARE = 0.005      # 0.5% of the book per pattern trade: a tactical
+                            # position, well below a fundamental core holding
+POSITION_EUR = BOOK_EUR * POSITION_SHARE          # 500,000 euros per trade
+
+EXPECTED_MOVE = 0.005       # 0.5% next-day move captured on a real pattern,
+                            # before costs. Evidence for chart patterns is thin
+                            # (Lo, Mamaysky and Wang 2000, Neely 2003), so this
+                            # is deliberately modest
+ROUND_TRIP_COST = 0.0020    # 20 bps in and out: liquid large caps, modest size
+
+# A trade on a chart with no pattern is a coin flip, so on average it loses
+# only the trading costs. The perfect trader trades a real pattern only if the
+# move beats the costs, so each cost is measured against that best action.
+NET_EDGE = max(EXPECTED_MOVE - ROUND_TRIP_COST, 0.0)   # what the perfect trader earns, as a share
+COST_MISSED_SETUP = POSITION_EUR * NET_EDGE            # profit forgone: 1,500 euros
+COST_SPURIOUS_TRADE = POSITION_EUR * ROUND_TRIP_COST   # costs paid on noise: 1,000 euros
+COST_WRONG_DIRECTION = POSITION_EUR * (NET_EDGE + EXPECTED_MOVE + ROUND_TRIP_COST)
+                                                       # forgo the edge, lose the move, pay costs: 5,000 euros
+COST_CORRECT_TRADE = POSITION_EUR * max(ROUND_TRIP_COST - EXPECTED_MOVE, 0.0)
+                                                       # 0 unless the move is below costs
+COST_CORRECT_PASS = 0.0
 
 # Share of charts that really contain a tradable pattern in production.
 # None means "use the share in the test set", which overstates it if the
-# dataset was built around charts that had patterns.
+# dataset was built around charts that had patterns. Set after the first run.
 BASE_RATE = None
 
 # The review desk.
-CHARTS_PER_DAY = 500                 # names screened each day, one chart each
-MINUTES_PER_REVIEW = 1.0             # analyst time to check one flagged chart
-ANALYST_COST_PER_HOUR = 60.0         # fully loaded, in euros
-REVIEW_HOURS_PER_ANALYST_PER_DAY = 2.0  # hours a day an analyst can spend on this
-MAX_ANALYSTS = 1.0                   # people actually available for the queue
-REVIEWER_ACCURACY = 1.0              # chance an analyst makes the right call on a reviewed chart.
-                                     # A wrong call counts as a missed setup on a real pattern
-                                     # and as a spurious trade on a clean chart.
+CHARTS_PER_DAY = 500                 # a large-cap US universe, one chart per stock
+MINUTES_PER_REVIEW = 2.0             # look at the chart, check for news, decide
+ANALYST_COST_PER_HOUR = 60_000 * 1.5 / 2_000   # 60k salary, 1.5x fully loaded,
+                                               # 2,000 working hours = 45 euros
+REVIEW_HOURS_PER_ANALYST_PER_DAY = 1.0  # one evening hour each, beside other work
+MAX_ANALYSTS = 2.0
+REVIEWER_ACCURACY = 0.9              # chart patterns are subjective, so two people
+                                     # will disagree on some. A wrong call counts as
+                                     # a missed setup on a real pattern and as a
+                                     # spurious trade on a clean chart.
