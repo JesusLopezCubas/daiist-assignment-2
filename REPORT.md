@@ -16,7 +16,7 @@ I chose an end of day screen rather than a live intraday scanner because it matc
 **What each mistake costs.** Every cost is measured against a perfect trader who always makes the right call, so a correct call costs nothing. The inputs:
 
 - **Position size €500,000**, which is 0.5% of the book. A short term technical signal is a tactical position, well below the size of a fundamental core holding.
-- **Expected move 0.5%** on the next day for a real pattern traded the right way. I kept this deliberately modest because the evidence that chart patterns pay is thin. Lo, Mamaysky and Wang (2000), studying US stocks from 1962 to 1996, found that some patterns carry incremental information that "may have some practical value", which is hardly a strong edge. Neely (2003) found that intraday trading rules in currencies earn nothing after realistic costs.
+- **Expected move 0.5%** on the next day for a real pattern traded the right way. I kept this deliberately modest because the evidence that chart patterns pay is thin. Lo, Mamaysky and Wang (2000), studying US stocks from 1962 to 1996, found that some patterns carry incremental information that "may have some practical value", which is hardly a strong edge. Neely and Weller (2003) found that intraday trading rules in currencies earn nothing after realistic costs.
 - **Trading costs of 20 bps** for a round trip. Nasdaq's analysis of buy side data puts the average institutional cost at about 31.5 bps of spread and market impact per trade, and the names in this universe are among the most liquid there are, traded in modest size.
 - **A trade on a chart with no real pattern is a coin flip.** On average it gains nothing and pays the trading costs.
 
@@ -85,7 +85,7 @@ What this means for the results:
 
 The class agnostic AP50 asks only whether a box lands on a pattern, ignoring which pattern. It is the only box metric on which the COCO model can be compared, since COCO has no chart classes. Zero-shot, COCO's most confident box on a chart is usually a "person" (91 of the 148 charts) or "skis" (32), with a median confidence of zero. The most common chart label in training is "no trade" (349 of 814 charts), so the majority class baseline and the predict nothing baseline are the same thing.
 
-**What changed, and whether the gap is as large as expected.** The finetuned model beats both baselines on every measure. As a detector the gap is large: from nothing to finding half the patterns. In money the gap is smaller, 11% cheaper than doing nothing when the model trades on its own. That is the central finding of the project: finding chart patterns turned out to be easier than making money from them.
+**What changed, and whether the gap is as large as expected.** The finetuned model beats both baselines on every measure. As a detector the gap is large: from nothing to finding half the patterns. In money the gap is smaller, 11% cheaper than doing nothing when the model trades on its own. That is the central finding of the project: finding chart patterns turned out to be easier than making money from them. Why a gain of this size still matters to a fund is discussed in the human review section.
 
 ## Per-class evaluation and failure modes
 
@@ -174,6 +174,10 @@ Doing nothing gives up the whole edge on offer: 285 real patterns a night at €
 
 **Staffing is the strongest lever.** With 1 analyst the cost is €738,336 per 1,000 charts, with 2 it is €685,434, with 3 it is €624,608 and with 5 it is €537,818. A third analyst hour at €45 would cut the loss by about €30,400 a night.
 
+**Why a small improvement is not a small result.** Saving 11% on its own, or a fifth of the available edge with the review band, can look modest. In the hedge fund world it is not. Funds rarely make money from one large, certain edge. They make it from small edges, net of costs, repeated across a great many bets. Grinold's fundamental law of active management puts this in one line: a strategy's information ratio is roughly its skill per bet (the information coefficient) times the square root of the number of independent bets it makes in a year. Skill per bet can be thin if breadth is large. This desk screens 500 names every night, about 125,000 charts over 250 trading days, so a thin edge per chart adds up. Under my assumptions the review band setup is worth about €170 for every chart screened, against doing nothing, which is €84,800 a night. This is how a pod fund judges a signal before giving it capital: not by how much it makes on one trade, but by whether it holds up across thousands of them.
+
+The argument holds under three conditions, and they are why my next steps start where they do. The edge must be real after costs (limitation 1). The bets must be independent, and charts from the same night share market wide moves, so the true breadth is well below 125,000. And the trades must fit inside the book (limitation 2).
+
 **Verdict.** I would not let the model trade on its own: it saves only 11% against doing nothing and leans short. I would ship it as a triage screen with the review band and the two analysts, after a paper trading pilot that measures the real edge. If the pilot confirms an edge above the trading cost, the cheapest improvement is a third evening hour of analyst time, not a better model.
 
 **The dashboard** (`uv run python main.py app`) loads the committed weights and saved results and never trains. Moving the two thresholds updates the confusion matrix, the expected cost per 1,000 charts and the share sent to review together, and a base rate slider shows how the answer moves. Other tabs show the cost curve with the chosen threshold, the per class results, the failure cases, the sensitivity analysis, and a chart upload that shows what the model would do.
@@ -188,6 +192,13 @@ Doing nothing gives up the whole edge on offer: 285 real patterns a night at €
 6. **The labels come from one person and patterns are subjective.** Next step: have a second person label the test charts and measure how often the two agree. That also gives a measured analyst accuracy in place of my assumed 90%.
 7. **Small patterns lose detail at 640 pixels, and mosaic augmentation stitches four charts into one**, creating charts where time jumps between stocks. Next step: train at 960 or 1,024 pixels and with mosaic switched off, and compare the runs on validation only.
 8. **The review queue has no slack.** Next step: the queue cap described above, and a weekly check that the review share has not drifted.
+
+## References
+
+- Grinold, R. (1989). The fundamental law of active management. *Journal of Portfolio Management*, 15(3).
+- Lo, A., Mamaysky, H. and Wang, J. (2000). Foundations of technical analysis: computational algorithms, statistical inference, and empirical implementation. *Journal of Finance*, 55(4).
+- Mackintosh, P. How much does trading cost the buy side? Nasdaq. https://www.nasdaq.com/articles/how-much-does-trading-cost-the-buy-side
+- Neely, C. and Weller, P. (2003). Intraday technical trading in the foreign exchange market. *Journal of International Money and Finance*, 22(2).
 
 ## Generative AI use disclosure
 
