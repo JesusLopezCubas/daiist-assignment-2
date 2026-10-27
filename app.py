@@ -414,7 +414,8 @@ with gr.Blocks(title="Chart Pattern Desk") as demo:
             gr.Markdown("No failures were saved by the training run.")
         gr.Markdown("**Does the model's most confident box point the right way?** Charts whose "
                     "patterns all point one way, against charts with both a bullish and a bearish "
-                    f"pattern (labelled by the rule '{config.MIXED_CHART_RULE}' in config.py).")
+                    "pattern. On a single-direction chart the most recent pattern is simply its "
+                    "direction.")
         gr.Dataframe(direction_frame(), interactive=False)
 
     with gr.Tab("Sensitivity"):

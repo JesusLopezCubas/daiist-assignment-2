@@ -530,10 +530,11 @@ def direction_breakdown(records: list, names: list, class_side: dict) -> list[di
         rs = [r for r in records if r["gt"] and r["pred"] and keep(
             len({side_of(names[int(g[0])], class_side) for g in r["gt"]}))]
         any_match = [r["side"] in {side_of(names[int(g[0])], class_side) for g in r["gt"]} for r in rs]
+        latest = [r["side"] == chart_truth(r["gt"], names, class_side, "latest") for r in rs]
         out.append({
             "charts": label,
             "count": len(rs),
-            "top box matches the chart label": round(float(np.mean([r["side"] == r["truth"] for r in rs])), 3) if rs else float("nan"),
+            "top box matches the most recent pattern": round(float(np.mean(latest)), 3) if rs else float("nan"),
             "top box matches some true pattern": round(float(np.mean(any_match)), 3) if rs else float("nan"),
         })
     return out
