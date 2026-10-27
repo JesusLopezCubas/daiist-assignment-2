@@ -1,0 +1,1385 @@
+{
+ "base_case_best": "model_band",
+ "base_case_cost_per_1000": 1080976.35,
+ "base_rate_reweighting_possible": true,
+ "by_base_rate": [
+  {
+   "base_rate": 0.01,
+   "best": "model_band",
+   "do_nothing": 15000.0,
+   "analyst_all": 102000.0,
+   "model_alone": 14360.9,
+   "model_band": 10944.36
+  },
+  {
+   "base_rate": 0.02,
+   "best": "model_band",
+   "do_nothing": 30000.0,
+   "analyst_all": 102500.0,
+   "model_alone": 28721.8,
+   "model_band": 21888.72
+  },
+  {
+   "base_rate": 0.03,
+   "best": "model_band",
+   "do_nothing": 45000.0,
+   "analyst_all": 103000.0,
+   "model_alone": 43082.71,
+   "model_band": 28574.66
+  },
+  {
+   "base_rate": 0.04,
+   "best": "model_band",
+   "do_nothing": 60000.0,
+   "analyst_all": 103500.0,
+   "model_alone": 57443.61,
+   "model_band": 38099.55
+  },
+  {
+   "base_rate": 0.05,
+   "best": "model_band",
+   "do_nothing": 75000.0,
+   "analyst_all": 104000.0,
+   "model_alone": 71804.51,
+   "model_band": 47624.44
+  },
+  {
+   "base_rate": 0.06,
+   "best": "model_band",
+   "do_nothing": 90000.0,
+   "analyst_all": 104500.0,
+   "model_alone": 86165.41,
+   "model_band": 54107.59
+  },
+  {
+   "base_rate": 0.07,
+   "best": "model_band",
+   "do_nothing": 105000.0,
+   "analyst_all": 105000.0,
+   "model_alone": 100526.32,
+   "model_band": 63125.53
+  },
+  {
+   "base_rate": 0.08,
+   "best": "model_band",
+   "do_nothing": 120000.0,
+   "analyst_all": 105500.0,
+   "model_alone": 114887.22,
+   "model_band": 72143.46
+  },
+  {
+   "base_rate": 0.09,
+   "best": "model_band",
+   "do_nothing": 135000.0,
+   "analyst_all": 106000.0,
+   "model_alone": 129248.12,
+   "model_band": 81161.39
+  },
+  {
+   "base_rate": 0.1,
+   "best": "model_band",
+   "do_nothing": 150000.0,
+   "analyst_all": 106500.0,
+   "model_alone": 143609.02,
+   "model_band": 90179.32
+  },
+  {
+   "base_rate": 0.11,
+   "best": "model_band",
+   "do_nothing": 165000.0,
+   "analyst_all": 107000.0,
+   "model_alone": 157969.92,
+   "model_band": 99197.26
+  },
+  {
+   "base_rate": 0.12,
+   "best": "model_band",
+   "do_nothing": 180000.0,
+   "analyst_all": 107500.0,
+   "model_alone": 172330.83,
+   "model_band": 108215.19
+  },
+  {
+   "base_rate": 0.13,
+   "best": "model_band",
+   "do_nothing": 195000.0,
+   "analyst_all": 108000.0,
+   "model_alone": 186691.73,
+   "model_band": 123823.53
+  },
+  {
+   "base_rate": 0.14,
+   "best": "model_band",
+   "do_nothing": 210000.0,
+   "analyst_all": 108500.0,
+   "model_alone": 201052.63,
+   "model_band": 133348.42
+  },
+  {
+   "base_rate": 0.15,
+   "best": "model_band",
+   "do_nothing": 225000.0,
+   "analyst_all": 109000.0,
+   "model_alone": 215413.53,
+   "model_band": 142873.31
+  },
+  {
+   "base_rate": 0.16,
+   "best": "model_band",
+   "do_nothing": 240000.0,
+   "analyst_all": 109500.0,
+   "model_alone": 229774.44,
+   "model_band": 152398.2
+  },
+  {
+   "base_rate": 0.17,
+   "best": "model_band",
+   "do_nothing": 255000.0,
+   "analyst_all": 110000.0,
+   "model_alone": 244135.34,
+   "model_band": 161923.08
+  },
+  {
+   "base_rate": 0.18,
+   "best": "model_band",
+   "do_nothing": 270000.0,
+   "analyst_all": 110500.0,
+   "model_alone": 258496.24,
+   "model_band": 171447.97
+  },
+  {
+   "base_rate": 0.19,
+   "best": "model_band",
+   "do_nothing": 285000.0,
+   "analyst_all": 111000.0,
+   "model_alone": 272857.14,
+   "model_band": 180972.86
+  },
+  {
+   "base_rate": 0.2,
+   "best": "model_band",
+   "do_nothing": 300000.0,
+   "analyst_all": 111500.0,
+   "model_alone": 287218.05,
+   "model_band": 190497.74
+  },
+  {
+   "base_rate": 0.21,
+   "best": "model_band",
+   "do_nothing": 315000.0,
+   "analyst_all": 112000.0,
+   "model_alone": 301578.95,
+   "model_band": 200022.63
+  },
+  {
+   "base_rate": 0.22,
+   "best": "model_band",
+   "do_nothing": 330000.0,
+   "analyst_all": 112500.0,
+   "model_alone": 315939.85,
+   "model_band": 209547.52
+  },
+  {
+   "base_rate": 0.23,
+   "best": "model_band",
+   "do_nothing": 345000.0,
+   "analyst_all": 113000.0,
+   "model_alone": 330300.75,
+   "model_band": 219072.41
+  },
+  {
+   "base_rate": 0.24,
+   "best": "model_band",
+   "do_nothing": 360000.0,
+   "analyst_all": 113500.0,
+   "model_alone": 344661.65,
+   "model_band": 233464.06
+  },
+  {
+   "base_rate": 0.25,
+   "best": "model_band",
+   "do_nothing": 375000.0,
+   "analyst_all": 114000.0,
+   "model_alone": 359022.56,
+   "model_band": 245726.5
+  },
+  {
+   "base_rate": 0.26,
+   "best": "model_band",
+   "do_nothing": 390000.0,
+   "analyst_all": 114500.0,
+   "model_alone": 373383.46,
+   "model_band": 263464.06
+  },
+  {
+   "base_rate": 0.27,
+   "best": "model_band",
+   "do_nothing": 405000.0,
+   "analyst_all": 115000.0,
+   "model_alone": 387744.36,
+   "model_band": 279072.41
+  },
+  {
+   "base_rate": 0.28,
+   "best": "model_band",
+   "do_nothing": 420000.0,
+   "analyst_all": 115500.0,
+   "model_alone": 402105.26,
+   "model_band": 281306.32
+  },
+  {
+   "base_rate": 0.29,
+   "best": "model_band",
+   "do_nothing": 435000.0,
+   "analyst_all": 116000.0,
+   "model_alone": 416466.17,
+   "model_band": 308565.45
+  },
+  {
+   "base_rate": 0.3,
+   "best": "model_band",
+   "do_nothing": 450000.0,
+   "analyst_all": 116500.0,
+   "model_alone": 430827.07,
+   "model_band": 328330.83
+  },
+  {
+   "base_rate": 0.31,
+   "best": "model_band",
+   "do_nothing": 465000.0,
+   "analyst_all": 117000.0,
+   "model_alone": 445187.97,
+   "model_band": 339275.19
+  },
+  {
+   "base_rate": 0.32,
+   "best": "model_band",
+   "do_nothing": 480000.0,
+   "analyst_all": 117500.0,
+   "model_alone": 459548.87,
+   "model_band": 350219.55
+  },
+  {
+   "base_rate": 0.33,
+   "best": "model_band",
+   "do_nothing": 495000.0,
+   "analyst_all": 118000.0,
+   "model_alone": 473909.77,
+   "model_band": 361163.91
+  },
+  {
+   "base_rate": 0.34,
+   "best": "model_band",
+   "do_nothing": 510000.0,
+   "analyst_all": 118500.0,
+   "model_alone": 488270.68,
+   "model_band": 372108.27
+  },
+  {
+   "base_rate": 0.35,
+   "best": "model_band",
+   "do_nothing": 525000.0,
+   "analyst_all": 119000.0,
+   "model_alone": 502631.58,
+   "model_band": 383052.63
+  },
+  {
+   "base_rate": 0.36,
+   "best": "model_band",
+   "do_nothing": 540000.0,
+   "analyst_all": 119500.0,
+   "model_alone": 516992.48,
+   "model_band": 393996.99
+  },
+  {
+   "base_rate": 0.37,
+   "best": "model_band",
+   "do_nothing": 555000.0,
+   "analyst_all": 120000.0,
+   "model_alone": 531353.38,
+   "model_band": 404941.35
+  },
+  {
+   "base_rate": 0.38,
+   "best": "model_band",
+   "do_nothing": 570000.0,
+   "analyst_all": 120500.0,
+   "model_alone": 545714.29,
+   "model_band": 415885.71
+  },
+  {
+   "base_rate": 0.39,
+   "best": "model_band",
+   "do_nothing": 585000.0,
+   "analyst_all": 121000.0,
+   "model_alone": 560075.19,
+   "model_band": 426830.08
+  },
+  {
+   "base_rate": 0.4,
+   "best": "model_band",
+   "do_nothing": 600000.0,
+   "analyst_all": 121500.0,
+   "model_alone": 574436.09,
+   "model_band": 449941.35
+  },
+  {
+   "base_rate": 0.41,
+   "best": "model_band",
+   "do_nothing": 615000.0,
+   "analyst_all": 122000.0,
+   "model_alone": 588796.99,
+   "model_band": 447784.74
+  },
+  {
+   "base_rate": 0.42,
+   "best": "model_band",
+   "do_nothing": 630000.0,
+   "analyst_all": 122500.0,
+   "model_alone": 603157.89,
+   "model_band": 471481.58
+  },
+  {
+   "base_rate": 0.43,
+   "best": "model_band",
+   "do_nothing": 645000.0,
+   "analyst_all": 123000.0,
+   "model_alone": 617518.8,
+   "model_band": 492406.58
+  },
+  {
+   "base_rate": 0.44,
+   "best": "model_band",
+   "do_nothing": 660000.0,
+   "analyst_all": 123500.0,
+   "model_alone": 631879.7,
+   "model_band": 503857.89
+  },
+  {
+   "base_rate": 0.45,
+   "best": "model_band",
+   "do_nothing": 675000.0,
+   "analyst_all": 124000.0,
+   "model_alone": 646240.6,
+   "model_band": 515309.21
+  },
+  {
+   "base_rate": 0.46,
+   "best": "model_band",
+   "do_nothing": 690000.0,
+   "analyst_all": 124500.0,
+   "model_alone": 660601.5,
+   "model_band": 518113.91
+  },
+  {
+   "base_rate": 0.47,
+   "best": "model_band",
+   "do_nothing": 705000.0,
+   "analyst_all": 125000.0,
+   "model_alone": 674962.41,
+   "model_band": 552507.97
+  },
+  {
+   "base_rate": 0.48,
+   "best": "model_band",
+   "do_nothing": 720000.0,
+   "analyst_all": 125500.0,
+   "model_alone": 689323.31,
+   "model_band": 564263.46
+  },
+  {
+   "base_rate": 0.49,
+   "best": "model_band",
+   "do_nothing": 735000.0,
+   "analyst_all": 126000.0,
+   "model_alone": 703684.21,
+   "model_band": 585955.26
+  },
+  {
+   "base_rate": 0.5,
+   "best": "model_band",
+   "do_nothing": 750000.0,
+   "analyst_all": 126500.0,
+   "model_alone": 718045.11,
+   "model_band": 597913.53
+  },
+  {
+   "base_rate": 0.51,
+   "best": "model_band",
+   "do_nothing": 765000.0,
+   "analyst_all": 127000.0,
+   "model_alone": 732406.02,
+   "model_band": 609871.8
+  },
+  {
+   "base_rate": 0.52,
+   "best": "model_band",
+   "do_nothing": 780000.0,
+   "analyst_all": 127500.0,
+   "model_alone": 746766.92,
+   "model_band": 621830.08
+  },
+  {
+   "base_rate": 0.53,
+   "best": "model_band",
+   "do_nothing": 795000.0,
+   "analyst_all": 128000.0,
+   "model_alone": 761127.82,
+   "model_band": 633788.35
+  },
+  {
+   "base_rate": 0.54,
+   "best": "model_band",
+   "do_nothing": 810000.0,
+   "analyst_all": 128500.0,
+   "model_alone": 775488.72,
+   "model_band": 635596.24
+  },
+  {
+   "base_rate": 0.55,
+   "best": "model_band",
+   "do_nothing": 825000.0,
+   "analyst_all": 129000.0,
+   "model_alone": 789849.62,
+   "model_band": 647366.54
+  },
+  {
+   "base_rate": 0.56,
+   "best": "model_band",
+   "do_nothing": 840000.0,
+   "analyst_all": 129500.0,
+   "model_alone": 804210.53,
+   "model_band": 698052.63
+  },
+  {
+   "base_rate": 0.57,
+   "best": "model_band",
+   "do_nothing": 855000.0,
+   "analyst_all": 130000.0,
+   "model_alone": 818571.43,
+   "model_band": 710517.86
+  },
+  {
+   "base_rate": 0.58,
+   "best": "model_band",
+   "do_nothing": 870000.0,
+   "analyst_all": 130500.0,
+   "model_alone": 832932.33,
+   "model_band": 722983.08
+  },
+  {
+   "base_rate": 0.59,
+   "best": "model_band",
+   "do_nothing": 885000.0,
+   "analyst_all": 131000.0,
+   "model_alone": 847293.23,
+   "model_band": 753394.51
+  },
+  {
+   "base_rate": 0.6,
+   "best": "model_band",
+   "do_nothing": 900000.0,
+   "analyst_all": 131500.0,
+   "model_alone": 861654.14,
+   "model_band": 766163.91
+  },
+  {
+   "base_rate": 0.61,
+   "best": "model_band",
+   "do_nothing": 915000.0,
+   "analyst_all": 132000.0,
+   "model_alone": 876015.04,
+   "model_band": 684284.7
+  },
+  {
+   "base_rate": 0.62,
+   "best": "model_band",
+   "do_nothing": 930000.0,
+   "analyst_all": 132500.0,
+   "model_alone": 890375.94,
+   "model_band": 695502.48
+  },
+  {
+   "base_rate": 0.63,
+   "best": "model_band",
+   "do_nothing": 945000.0,
+   "analyst_all": 133000.0,
+   "model_alone": 904736.84,
+   "model_band": 706720.26
+  },
+  {
+   "base_rate": 0.64,
+   "best": "model_band",
+   "do_nothing": 960000.0,
+   "analyst_all": 133500.0,
+   "model_alone": 919097.74,
+   "model_band": 737405.11
+  },
+  {
+   "base_rate": 0.65,
+   "best": "model_band",
+   "do_nothing": 975000.0,
+   "analyst_all": 134000.0,
+   "model_alone": 933458.65,
+   "model_band": 748927.07
+  },
+  {
+   "base_rate": 0.66,
+   "best": "model_band",
+   "do_nothing": 990000.0,
+   "analyst_all": 134500.0,
+   "model_alone": 947819.55,
+   "model_band": 760449.02
+  },
+  {
+   "base_rate": 0.67,
+   "best": "model_band",
+   "do_nothing": 1005000.0,
+   "analyst_all": 135000.0,
+   "model_alone": 962180.45,
+   "model_band": 822576.13
+  },
+  {
+   "base_rate": 0.68,
+   "best": "model_band",
+   "do_nothing": 1020000.0,
+   "analyst_all": 135500.0,
+   "model_alone": 976541.35,
+   "model_band": 834853.38
+  },
+  {
+   "base_rate": 0.69,
+   "best": "model_band",
+   "do_nothing": 1035000.0,
+   "analyst_all": 136000.0,
+   "model_alone": 990902.26,
+   "model_band": 847130.64
+  },
+  {
+   "base_rate": 0.7,
+   "best": "model_band",
+   "do_nothing": 1050000.0,
+   "analyst_all": 136500.0,
+   "model_alone": 1005263.16,
+   "model_band": 929344.74
+  },
+  {
+   "base_rate": 0.71,
+   "best": "model_band",
+   "do_nothing": 1065000.0,
+   "analyst_all": 137000.0,
+   "model_alone": 1019624.06,
+   "model_band": 942621.09
+  },
+  {
+   "base_rate": 0.72,
+   "best": "model_band",
+   "do_nothing": 1080000.0,
+   "analyst_all": 137500.0,
+   "model_alone": 1033984.96,
+   "model_band": 955897.44
+  },
+  {
+   "base_rate": 0.73,
+   "best": "model_band",
+   "do_nothing": 1095000.0,
+   "analyst_all": 138000.0,
+   "model_alone": 1048345.86,
+   "model_band": 976575.34
+  },
+  {
+   "base_rate": 0.74,
+   "best": "model_band",
+   "do_nothing": 1110000.0,
+   "analyst_all": 138500.0,
+   "model_alone": 1062706.77,
+   "model_band": 989953.08
+  },
+  {
+   "base_rate": 0.75,
+   "best": "model_band",
+   "do_nothing": 1125000.0,
+   "analyst_all": 139000.0,
+   "model_alone": 1077067.67,
+   "model_band": 1003330.83
+  },
+  {
+   "base_rate": 0.76,
+   "best": "model_band",
+   "do_nothing": 1140000.0,
+   "analyst_all": 139500.0,
+   "model_alone": 1091428.57,
+   "model_band": 1016708.57
+  },
+  {
+   "base_rate": 0.77,
+   "best": "model_band",
+   "do_nothing": 1155000.0,
+   "analyst_all": 140000.0,
+   "model_alone": 1105789.47,
+   "model_band": 902804.74
+  },
+  {
+   "base_rate": 0.78,
+   "best": "model_band",
+   "do_nothing": 1170000.0,
+   "analyst_all": 140500.0,
+   "model_alone": 1120150.38,
+   "model_band": 914529.47
+  },
+  {
+   "base_rate": 0.79,
+   "best": "model_band",
+   "do_nothing": 1185000.0,
+   "analyst_all": 141000.0,
+   "model_alone": 1134511.28,
+   "model_band": 926254.21
+  },
+  {
+   "base_rate": 0.8,
+   "best": "model_band",
+   "do_nothing": 1200000.0,
+   "analyst_all": 141500.0,
+   "model_alone": 1148872.18,
+   "model_band": 937978.95
+  },
+  {
+   "base_rate": 0.81,
+   "best": "model_band",
+   "do_nothing": 1215000.0,
+   "analyst_all": 142000.0,
+   "model_alone": 1163233.08,
+   "model_band": 974341.69
+  },
+  {
+   "base_rate": 0.82,
+   "best": "model_band",
+   "do_nothing": 1230000.0,
+   "analyst_all": 142500.0,
+   "model_alone": 1177593.98,
+   "model_band": 986370.6
+  },
+  {
+   "base_rate": 0.83,
+   "best": "model_band",
+   "do_nothing": 1245000.0,
+   "analyst_all": 143000.0,
+   "model_alone": 1191954.89,
+   "model_band": 998399.51
+  },
+  {
+   "base_rate": 0.84,
+   "best": "model_band",
+   "do_nothing": 1260000.0,
+   "analyst_all": 143500.0,
+   "model_alone": 1206315.79,
+   "model_band": 1010428.42
+  },
+  {
+   "base_rate": 0.85,
+   "best": "model_band",
+   "do_nothing": 1275000.0,
+   "analyst_all": 144000.0,
+   "model_alone": 1220676.69,
+   "model_band": 1022457.33
+  },
+  {
+   "base_rate": 0.86,
+   "best": "model_band",
+   "do_nothing": 1290000.0,
+   "analyst_all": 144500.0,
+   "model_alone": 1235037.59,
+   "model_band": 1034486.24
+  },
+  {
+   "base_rate": 0.87,
+   "best": "model_band",
+   "do_nothing": 1305000.0,
+   "analyst_all": 145000.0,
+   "model_alone": 1249398.5,
+   "model_band": 1046515.15
+  },
+  {
+   "base_rate": 0.88,
+   "best": "model_band",
+   "do_nothing": 1320000.0,
+   "analyst_all": 145500.0,
+   "model_alone": 1263759.4,
+   "model_band": 1058544.06
+  },
+  {
+   "base_rate": 0.89,
+   "best": "model_band",
+   "do_nothing": 1335000.0,
+   "analyst_all": 146000.0,
+   "model_alone": 1278120.3,
+   "model_band": 1070572.97
+  },
+  {
+   "base_rate": 0.9,
+   "best": "model_band",
+   "do_nothing": 1350000.0,
+   "analyst_all": 146500.0,
+   "model_alone": 1292481.2,
+   "model_band": 1082601.88
+  },
+  {
+   "base_rate": 0.91,
+   "best": "model_band",
+   "do_nothing": 1365000.0,
+   "analyst_all": 147000.0,
+   "model_alone": 1306842.11,
+   "model_band": 1235827.89
+  },
+  {
+   "base_rate": 0.92,
+   "best": "model_band",
+   "do_nothing": 1380000.0,
+   "analyst_all": 147500.0,
+   "model_alone": 1321203.01,
+   "model_band": 1249408.42
+  },
+  {
+   "base_rate": 0.93,
+   "best": "model_band",
+   "do_nothing": 1395000.0,
+   "analyst_all": 148000.0,
+   "model_alone": 1335563.91,
+   "model_band": 1262988.95
+  },
+  {
+   "base_rate": 0.94,
+   "best": "model_band",
+   "do_nothing": 1410000.0,
+   "analyst_all": 148500.0,
+   "model_alone": 1349924.81,
+   "model_band": 1276569.47
+  },
+  {
+   "base_rate": 0.95,
+   "best": "model_band",
+   "do_nothing": 1425000.0,
+   "analyst_all": 149000.0,
+   "model_alone": 1364285.71,
+   "model_band": 1290150.0
+  },
+  {
+   "base_rate": 0.96,
+   "best": "model_band",
+   "do_nothing": 1440000.0,
+   "analyst_all": 149500.0,
+   "model_alone": 1378646.62,
+   "model_band": 1303730.53
+  },
+  {
+   "base_rate": 0.97,
+   "best": "model_band",
+   "do_nothing": 1455000.0,
+   "analyst_all": 150000.0,
+   "model_alone": 1393007.52,
+   "model_band": 1188242.71
+  },
+  {
+   "base_rate": 0.98,
+   "best": "model_band",
+   "do_nothing": 1470000.0,
+   "analyst_all": 150500.0,
+   "model_alone": 1407368.42,
+   "model_band": 1200492.63
+  },
+  {
+   "base_rate": 0.99,
+   "best": "model_band",
+   "do_nothing": 1485000.0,
+   "analyst_all": 151000.0,
+   "model_alone": 1421729.32,
+   "model_band": 1212742.56
+  }
+ ],
+ "best_setup_switches": [],
+ "model_beats_doing_nothing_from_base_rate": 0.01,
+ "by_cost": [
+  {
+   "assumption": "Missed setup cost",
+   "base_value": 1500.0,
+   "same_answer_from_x": 0.25,
+   "same_answer_to_x": 4.0,
+   "rows": [
+    {
+     "assumption": "Missed setup cost",
+     "multiplier": 0.25,
+     "value": 375.0,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 302939.19,
+     "t_single": 0.95,
+     "band": [
+      0.85,
+      0.95
+     ]
+    },
+    {
+     "assumption": "Missed setup cost",
+     "multiplier": 0.5,
+     "value": 750.0,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 605726.35,
+     "t_single": 0.95,
+     "band": [
+      0.85,
+      0.95
+     ]
+    },
+    {
+     "assumption": "Missed setup cost",
+     "multiplier": 0.75,
+     "value": 1125.0,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 908513.51,
+     "t_single": 0.95,
+     "band": [
+      0.85,
+      0.95
+     ]
+    },
+    {
+     "assumption": "Missed setup cost",
+     "multiplier": 1.0,
+     "value": 1500.0,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 1080976.35,
+     "t_single": 0.87,
+     "band": [
+      0.78,
+      0.87
+     ]
+    },
+    {
+     "assumption": "Missed setup cost",
+     "multiplier": 1.5,
+     "value": 2250.0,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 1188756.76,
+     "t_single": 0.49,
+     "band": [
+      0.36,
+      0.49
+     ]
+    },
+    {
+     "assumption": "Missed setup cost",
+     "multiplier": 2.0,
+     "value": 3000.0,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 1340783.78,
+     "t_single": 0.13,
+     "band": [
+      0.36,
+      0.49
+     ]
+    },
+    {
+     "assumption": "Missed setup cost",
+     "multiplier": 3.0,
+     "value": 4500.0,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 1160685.81,
+     "t_single": 0.13,
+     "band": [
+      0.12,
+      0.28
+     ]
+    },
+    {
+     "assumption": "Missed setup cost",
+     "multiplier": 4.0,
+     "value": 6000.0,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 1200212.84,
+     "t_single": 0.13,
+     "band": [
+      0.12,
+      0.28
+     ]
+    }
+   ]
+  },
+  {
+   "assumption": "Spurious trade cost",
+   "base_value": 1000.0,
+   "same_answer_from_x": 0.25,
+   "same_answer_to_x": 4.0,
+   "rows": [
+    {
+     "assumption": "Spurious trade cost",
+     "multiplier": 0.25,
+     "value": 250.0,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 1080976.35,
+     "t_single": 0.87,
+     "band": [
+      0.78,
+      0.87
+     ]
+    },
+    {
+     "assumption": "Spurious trade cost",
+     "multiplier": 0.5,
+     "value": 500.0,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 1080976.35,
+     "t_single": 0.87,
+     "band": [
+      0.78,
+      0.87
+     ]
+    },
+    {
+     "assumption": "Spurious trade cost",
+     "multiplier": 0.75,
+     "value": 750.0,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 1080976.35,
+     "t_single": 0.87,
+     "band": [
+      0.78,
+      0.87
+     ]
+    },
+    {
+     "assumption": "Spurious trade cost",
+     "multiplier": 1.0,
+     "value": 1000.0,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 1080976.35,
+     "t_single": 0.87,
+     "band": [
+      0.78,
+      0.87
+     ]
+    },
+    {
+     "assumption": "Spurious trade cost",
+     "multiplier": 1.5,
+     "value": 1500.0,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 1080976.35,
+     "t_single": 0.87,
+     "band": [
+      0.78,
+      0.87
+     ]
+    },
+    {
+     "assumption": "Spurious trade cost",
+     "multiplier": 2.0,
+     "value": 2000.0,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 1080976.35,
+     "t_single": 0.87,
+     "band": [
+      0.78,
+      0.87
+     ]
+    },
+    {
+     "assumption": "Spurious trade cost",
+     "multiplier": 3.0,
+     "value": 3000.0,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 1080976.35,
+     "t_single": 0.87,
+     "band": [
+      0.78,
+      0.87
+     ]
+    },
+    {
+     "assumption": "Spurious trade cost",
+     "multiplier": 4.0,
+     "value": 4000.0,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 1080976.35,
+     "t_single": 0.87,
+     "band": [
+      0.78,
+      0.87
+     ]
+    }
+   ]
+  },
+  {
+   "assumption": "Wrong direction cost",
+   "base_value": 5000.0,
+   "same_answer_from_x": 0.25,
+   "same_answer_to_x": 4.0,
+   "rows": [
+    {
+     "assumption": "Wrong direction cost",
+     "multiplier": 0.25,
+     "value": 1250.0,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 346834.46,
+     "t_single": 0.13,
+     "band": [
+      0.12,
+      0.28
+     ]
+    },
+    {
+     "assumption": "Wrong direction cost",
+     "multiplier": 0.5,
+     "value": 2500.0,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 682000.0,
+     "t_single": 0.13,
+     "band": [
+      0.36,
+      0.49
+     ]
+    },
+    {
+     "assumption": "Wrong direction cost",
+     "multiplier": 0.75,
+     "value": 3750.0,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 859364.86,
+     "t_single": 0.49,
+     "band": [
+      0.36,
+      0.49
+     ]
+    },
+    {
+     "assumption": "Wrong direction cost",
+     "multiplier": 1.0,
+     "value": 5000.0,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 1080976.35,
+     "t_single": 0.87,
+     "band": [
+      0.78,
+      0.87
+     ]
+    },
+    {
+     "assumption": "Wrong direction cost",
+     "multiplier": 1.5,
+     "value": 7500.0,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 1211300.68,
+     "t_single": 0.95,
+     "band": [
+      0.85,
+      0.95
+     ]
+    },
+    {
+     "assumption": "Wrong direction cost",
+     "multiplier": 2.0,
+     "value": 10000.0,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 1211300.68,
+     "t_single": 0.95,
+     "band": [
+      0.85,
+      0.95
+     ]
+    },
+    {
+     "assumption": "Wrong direction cost",
+     "multiplier": 3.0,
+     "value": 15000.0,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 1211300.68,
+     "t_single": 0.95,
+     "band": [
+      0.85,
+      0.95
+     ]
+    },
+    {
+     "assumption": "Wrong direction cost",
+     "multiplier": 4.0,
+     "value": 20000.0,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 1211300.68,
+     "t_single": 0.95,
+     "band": [
+      0.85,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "assumption": "Analyst cost per review",
+   "base_value": 1.5,
+   "same_answer_from_x": 0.25,
+   "same_answer_to_x": 4.0,
+   "rows": [
+    {
+     "assumption": "Analyst cost per review",
+     "multiplier": 0.25,
+     "value": 0.38,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 1080801.52,
+     "t_single": 0.87,
+     "band": [
+      0.78,
+      0.87
+     ]
+    },
+    {
+     "assumption": "Analyst cost per review",
+     "multiplier": 0.5,
+     "value": 0.75,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 1080859.8,
+     "t_single": 0.87,
+     "band": [
+      0.78,
+      0.87
+     ]
+    },
+    {
+     "assumption": "Analyst cost per review",
+     "multiplier": 0.75,
+     "value": 1.12,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 1080918.07,
+     "t_single": 0.87,
+     "band": [
+      0.78,
+      0.87
+     ]
+    },
+    {
+     "assumption": "Analyst cost per review",
+     "multiplier": 1.0,
+     "value": 1.5,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 1080976.35,
+     "t_single": 0.87,
+     "band": [
+      0.78,
+      0.87
+     ]
+    },
+    {
+     "assumption": "Analyst cost per review",
+     "multiplier": 1.5,
+     "value": 2.25,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 1081092.91,
+     "t_single": 0.87,
+     "band": [
+      0.78,
+      0.87
+     ]
+    },
+    {
+     "assumption": "Analyst cost per review",
+     "multiplier": 2.0,
+     "value": 3.0,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 1081209.46,
+     "t_single": 0.87,
+     "band": [
+      0.78,
+      0.87
+     ]
+    },
+    {
+     "assumption": "Analyst cost per review",
+     "multiplier": 3.0,
+     "value": 4.5,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 1081442.57,
+     "t_single": 0.87,
+     "band": [
+      0.78,
+      0.87
+     ]
+    },
+    {
+     "assumption": "Analyst cost per review",
+     "multiplier": 4.0,
+     "value": 6.0,
+     "best_setup": "model_band",
+     "best_cost_per_1000": 1081675.68,
+     "t_single": 0.87,
+     "band": [
+      0.78,
+      0.87
+     ]
+    }
+   ]
+  }
+ ],
+ "by_reviewer_accuracy": [
+  {
+   "reviewer_accuracy": 0.6,
+   "best_setup": "model_band",
+   "best_cost_per_1000": 1150908.78
+  },
+  {
+   "reviewer_accuracy": 0.7,
+   "best_setup": "model_band",
+   "best_cost_per_1000": 1127597.97
+  },
+  {
+   "reviewer_accuracy": 0.8,
+   "best_setup": "model_band",
+   "best_cost_per_1000": 1104287.16
+  },
+  {
+   "reviewer_accuracy": 0.9,
+   "best_setup": "model_band",
+   "best_cost_per_1000": 1080976.35
+  },
+  {
+   "reviewer_accuracy": 0.95,
+   "best_setup": "model_band",
+   "best_cost_per_1000": 1069320.95
+  },
+  {
+   "reviewer_accuracy": 1.0,
+   "best_setup": "model_band",
+   "best_cost_per_1000": 1057665.54
+  }
+ ],
+ "by_analysts_available": [
+  {
+   "analysts_available": 0.5,
+   "best_setup": "model_band",
+   "best_cost_per_1000": 1228398.65,
+   "band": [
+    0.78,
+    0.79
+   ],
+   "band_review_share": 0.0135
+  },
+  {
+   "analysts_available": 1.0,
+   "best_setup": "model_band",
+   "best_cost_per_1000": 1181202.7,
+   "band": [
+    0.82,
+    0.87
+   ],
+   "band_review_share": 0.0811
+  },
+  {
+   "analysts_available": 2.0,
+   "best_setup": "model_band",
+   "best_cost_per_1000": 1080976.35,
+   "band": [
+    0.78,
+    0.87
+   ],
+   "band_review_share": 0.1554
+  },
+  {
+   "analysts_available": 3.0,
+   "best_setup": "model_band",
+   "best_cost_per_1000": 1057736.49,
+   "band": [
+    0.77,
+    0.9
+   ],
+   "band_review_share": 0.2027
+  },
+  {
+   "analysts_available": 5.0,
+   "best_setup": "model_band",
+   "best_cost_per_1000": 910621.62,
+   "band": [
+    0.71,
+    0.95
+   ],
+   "band_review_share": 0.3243
+  }
+ ],
+ "by_expected_move": [
+  {
+   "expected_move": 0.001,
+   "best_setup": "do_nothing",
+   "best_cost_per_1000": 0.0,
+   "t_single": 0.99,
+   "band": [
+    0.99,
+    0.99
+   ]
+  },
+  {
+   "expected_move": 0.002,
+   "best_setup": "do_nothing",
+   "best_cost_per_1000": 0.0,
+   "t_single": 0.98,
+   "band": [
+    0.98,
+    0.98
+   ]
+  },
+  {
+   "expected_move": 0.003,
+   "best_setup": "model_band",
+   "best_cost_per_1000": 403868.24,
+   "t_single": 0.95,
+   "band": [
+    0.85,
+    0.95
+   ]
+  },
+  {
+   "expected_move": 0.005,
+   "best_setup": "model_band",
+   "best_cost_per_1000": 1080976.35,
+   "t_single": 0.87,
+   "band": [
+    0.78,
+    0.87
+   ]
+  },
+  {
+   "expected_move": 0.0075,
+   "best_setup": "model_band",
+   "best_cost_per_1000": 1644837.84,
+   "t_single": 0.49,
+   "band": [
+    0.36,
+    0.49
+   ]
+  },
+  {
+   "expected_move": 0.01,
+   "best_setup": "model_band",
+   "best_cost_per_1000": 2252945.95,
+   "t_single": 0.49,
+   "band": [
+    0.36,
+    0.49
+   ]
+  },
+  {
+   "expected_move": 0.02,
+   "best_setup": "model_band",
+   "best_cost_per_1000": 4685378.38,
+   "t_single": 0.13,
+   "band": [
+    0.36,
+    0.49
+   ]
+  },
+  {
+   "expected_move": 0.035,
+   "best_setup": "model_band",
+   "best_cost_per_1000": 8334027.03,
+   "t_single": 0.13,
+   "band": [
+    0.36,
+    0.49
+   ]
+  }
+ ]
+}

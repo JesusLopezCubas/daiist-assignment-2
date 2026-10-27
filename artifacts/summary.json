@@ -1,0 +1,478 @@
+{
+  "dataset": {
+    "workspace": "stock-patterns",
+    "project": "stocks-3patterns-2m-sept2023",
+    "version": 1,
+    "url": "https://universe.roboflow.com/stock-patterns/stocks-3patterns-2m-sept2023/dataset/1",
+    "classes": [
+      "double bottom",
+      "double top",
+      "head and shoulders"
+    ],
+    "split": {
+      "all_dates": [
+        "2023-09-11",
+        "2023-09-12",
+        "2023-09-13",
+        "2023-09-14",
+        "2023-09-15",
+        "2023-09-18",
+        "2023-09-19",
+        "2023-09-20",
+        "2023-09-21",
+        "2023-09-22",
+        "2023-09-25",
+        "2023-09-26",
+        "2023-09-27",
+        "2023-09-28",
+        "2023-09-29"
+      ],
+      "train_dates": [
+        "2023-09-11",
+        "2023-09-12",
+        "2023-09-13",
+        "2023-09-14",
+        "2023-09-15",
+        "2023-09-18",
+        "2023-09-19",
+        "2023-09-20",
+        "2023-09-21",
+        "2023-09-22",
+        "2023-09-25"
+      ],
+      "valid_dates": [
+        "2023-09-26",
+        "2023-09-27"
+      ],
+      "test_dates": [
+        "2023-09-28",
+        "2023-09-29"
+      ],
+      "undated_images_put_in_train": 0
+    },
+    "description": {
+      "train": {
+        "charts": 814,
+        "charts_with_no_pattern": 183,
+        "charts_with_both_directions": 166,
+        "chart_truth": {
+          "LONG": 207,
+          "SHORT": 424,
+          "NONE": 183
+        },
+        "instances": {
+          "double bottom": 338,
+          "double top": 557,
+          "head and shoulders": 94
+        },
+        "charts_containing": {
+          "double bottom": 303,
+          "double top": 443,
+          "head and shoulders": 86
+        },
+        "distinct_tickers": 74,
+        "box_area_share_p10_p50_p90": [
+          0.007,
+          0.02,
+          0.071
+        ],
+        "box_width_share_p10_p50_p90": [
+          0.052,
+          0.098,
+          0.212
+        ]
+      },
+      "valid": {
+        "charts": 148,
+        "charts_with_no_pattern": 27,
+        "charts_with_both_directions": 56,
+        "chart_truth": {
+          "LONG": 42,
+          "SHORT": 79,
+          "NONE": 27
+        },
+        "instances": {
+          "double bottom": 75,
+          "double top": 136,
+          "head and shoulders": 22
+        },
+        "charts_containing": {
+          "double bottom": 69,
+          "double top": 97,
+          "head and shoulders": 20
+        },
+        "distinct_tickers": 74,
+        "box_area_share_p10_p50_p90": [
+          0.008,
+          0.021,
+          0.068
+        ],
+        "box_width_share_p10_p50_p90": [
+          0.049,
+          0.098,
+          0.205
+        ]
+      },
+      "test": {
+        "charts": 148,
+        "charts_with_no_pattern": 15,
+        "charts_with_both_directions": 36,
+        "chart_truth": {
+          "LONG": 47,
+          "SHORT": 86,
+          "NONE": 15
+        },
+        "instances": {
+          "double bottom": 66,
+          "double top": 127,
+          "head and shoulders": 19
+        },
+        "charts_containing": {
+          "double bottom": 63,
+          "double top": 92,
+          "head and shoulders": 18
+        },
+        "distinct_tickers": 74,
+        "box_area_share_p10_p50_p90": [
+          0.006,
+          0.022,
+          0.082
+        ],
+        "box_width_share_p10_p50_p90": [
+          0.048,
+          0.1,
+          0.229
+        ]
+      }
+    }
+  },
+  "training": {
+    "base_model": "yolo11s.pt",
+    "epochs_requested": 100,
+    "epochs_run": 43,
+    "imgsz": 640,
+    "batch": 16,
+    "patience": 25,
+    "seed": 42,
+    "fliplr": 0.0,
+    "flipud": 0.0,
+    "device": "Tesla T4",
+    "minutes": 10.7
+  },
+  "detection_test": {
+    "mAP50": 0.402,
+    "mAP50-95": 0.2723,
+    "mean_precision": 0.3574,
+    "mean_recall": 0.5316,
+    "per_class": [
+      {
+        "class": "double bottom",
+        "direction": "LONG",
+        "test_instances": 66,
+        "precision": 0.4767,
+        "recall": 0.3727,
+        "AP50": 0.3785,
+        "AP50-95": 0.2411
+      },
+      {
+        "class": "double top",
+        "direction": "SHORT",
+        "test_instances": 127,
+        "precision": 0.4008,
+        "recall": 0.7638,
+        "AP50": 0.603,
+        "AP50-95": 0.4062
+      },
+      {
+        "class": "head and shoulders",
+        "direction": "SHORT",
+        "test_instances": 19,
+        "precision": 0.1947,
+        "recall": 0.4584,
+        "AP50": 0.2246,
+        "AP50-95": 0.1695
+      }
+    ],
+    "box_confusion_matrix": {
+      "labels": [
+        "double bottom",
+        "double top",
+        "head and shoulders",
+        "background"
+      ],
+      "matrix": [
+        [
+          56,
+          3,
+          0,
+          2390
+        ],
+        [
+          8,
+          120,
+          5,
+          4543
+        ],
+        [
+          0,
+          4,
+          14,
+          2406
+        ],
+        [
+          2,
+          0,
+          0,
+          0
+        ]
+      ],
+      "orientation": "rows = predicted class, columns = true class (Ultralytics convention)"
+    },
+    "note": "precision and recall per class are at the confidence that maximises F1"
+  },
+  "baselines_test": [
+    {
+      "model": "Finetuned yolo11s",
+      "class_mAP50": 0.402,
+      "class_agnostic_AP50": 0.501,
+      "threshold_from_valid": 0.87,
+      "direction_accuracy": 0.1554,
+      "pattern_precision": 1.0,
+      "pattern_recall": 0.0677,
+      "cost_per_1000_eur": 1290540.54
+    },
+    {
+      "model": "COCO yolo11s zero-shot",
+      "class_mAP50": 0.0,
+      "class_agnostic_AP50": 0.0,
+      "threshold_from_valid": 0.06,
+      "direction_accuracy": 0.1081,
+      "pattern_precision": 0.6667,
+      "pattern_recall": 0.015,
+      "cost_per_1000_eur": 1334459.46
+    },
+    {
+      "model": "Predict nothing",
+      "class_mAP50": 0.0,
+      "class_agnostic_AP50": 0.0,
+      "threshold_from_valid": null,
+      "direction_accuracy": 0.1014,
+      "pattern_precision": NaN,
+      "pattern_recall": 0.0,
+      "cost_per_1000_eur": 1347972.97
+    },
+    {
+      "model": "Always SHORT (majority chart label)",
+      "class_mAP50": 0.0,
+      "class_agnostic_AP50": 0.0,
+      "threshold_from_valid": null,
+      "direction_accuracy": 0.5811,
+      "pattern_precision": 0.8986,
+      "pattern_recall": 1.0,
+      "cost_per_1000_eur": 1689189.19
+    }
+  ],
+  "operating_point": {
+    "chosen_on": "valid",
+    "single_threshold": 0.87,
+    "band": {
+      "t_low": 0.78,
+      "t_high": 0.87,
+      "staffing_bound": true
+    },
+    "base_rate_used": 0.8986486486486487,
+    "base_rate_in_test_data": 0.8986486486486487,
+    "base_rate_reweighting_possible": true,
+    "recommended_setup": "Model + review band",
+    "recommended_setup_note": "cheapest setup the analysts can staff on the validation days"
+  },
+  "test_results": {
+    "model_alone": {
+      "cost_per_1000_eur": 1290540.54,
+      "outcomes_per_1000": {
+        "correct trades": 54.05405405405405,
+        "wrong direction trades": 6.756756756756756,
+        "spurious trades": 0.0,
+        "missed setups": 837.8378378378378,
+        "correct passes": 101.35135135135131,
+        "sent to review": 0.0
+      },
+      "confusion": [
+        [
+          0,
+          1,
+          46,
+          0
+        ],
+        [
+          0,
+          8,
+          78,
+          0
+        ],
+        [
+          0,
+          0,
+          15,
+          0
+        ]
+      ],
+      "metrics": {
+        "accuracy": 0.1554054054054054,
+        "LONG_precision": NaN,
+        "LONG_recall": 0.0,
+        "SHORT_precision": 0.8888888888888888,
+        "SHORT_recall": 0.09302325581395349,
+        "pattern_precision": 1.0,
+        "pattern_recall": 0.06766917293233082
+      }
+    },
+    "model_plus_review": {
+      "cost_per_1000_eur": 1080976.35,
+      "review_share": 0.1554,
+      "outcomes_per_1000": {
+        "correct trades": 54.05405405405405,
+        "wrong direction trades": 6.756756756756756,
+        "spurious trades": 0.0,
+        "missed setups": 682.4324324324325,
+        "correct passes": 101.35135135135131,
+        "sent to review": 155.4054054054054
+      },
+      "confusion": [
+        [
+          0,
+          1,
+          38,
+          8
+        ],
+        [
+          0,
+          8,
+          63,
+          15
+        ],
+        [
+          0,
+          0,
+          15,
+          0
+        ]
+      ]
+    },
+    "alternatives": [
+      {
+        "setup": "do_nothing",
+        "option": "Do nothing (never trade)",
+        "cost_per_1000_eur": 1347972.97,
+        "cost_per_day_eur": 673986.49,
+        "review_share": 0.0,
+        "reviews_per_day": 0.0,
+        "analysts_needed": 0.0,
+        "staffable": true
+      },
+      {
+        "setup": "analyst_all",
+        "option": "Analyst checks every chart",
+        "cost_per_1000_eur": 146432.43,
+        "cost_per_day_eur": 73216.22,
+        "review_share": 1.0,
+        "reviews_per_day": 500.0,
+        "analysts_needed": 16.67,
+        "staffable": false
+      },
+      {
+        "setup": "model_alone",
+        "option": "Model alone (t = 0.87)",
+        "cost_per_1000_eur": 1290540.54,
+        "cost_per_day_eur": 645270.27,
+        "review_share": 0.0,
+        "reviews_per_day": 0.0,
+        "analysts_needed": 0.0,
+        "staffable": true
+      },
+      {
+        "setup": "model_band",
+        "option": "Model + review band (0.78 to 0.87)",
+        "cost_per_1000_eur": 1080976.35,
+        "cost_per_day_eur": 540488.18,
+        "review_share": 0.1554,
+        "reviews_per_day": 77.7,
+        "analysts_needed": 2.59,
+        "staffable": false
+      }
+    ]
+  },
+  "economics_used": {
+    "ANALYST_COST_PER_HOUR": 45.0,
+    "BASE_RATE": null,
+    "BOOK_EUR": 100000000,
+    "CHARTS_PER_DAY": 500,
+    "COSTS_ARE_PLACEHOLDERS": false,
+    "COST_CORRECT_PASS": 0.0,
+    "COST_CORRECT_TRADE": 0.0,
+    "COST_MISSED_SETUP": 1500.0,
+    "COST_SPURIOUS_TRADE": 1000.0,
+    "COST_WRONG_DIRECTION": 5000.0,
+    "EXPECTED_MOVE": 0.005,
+    "MAX_ANALYSTS": 2.0,
+    "MINUTES_PER_REVIEW": 2.0,
+    "POSITION_EUR": 500000.0,
+    "POSITION_SHARE": 0.005,
+    "REVIEWER_ACCURACY": 0.9,
+    "REVIEW_HOURS_PER_ANALYST_PER_DAY": 1.0,
+    "ROUND_TRIP_COST": 0.002
+  },
+  "examples": [
+    "aapl_2m_2023-09-28_to_2023-09-29_png.rf.3afee1c6bf94b8923bf2584bd3e64f4e.jpg",
+    "aapl_2m_2023-09-29_to_2023-09-30_png.rf.b4461911cf2567f56a4f9f271cbad275.jpg",
+    "acre_2m_2023-09-29_to_2023-09-30_png.rf.295437cc77960426e7727a6d65d99364.jpg",
+    "acn_2m_2023-09-28_to_2023-09-29_png.rf.15575c04d8db1ee9f2e6ab528d043b25.jpg"
+  ],
+  "failures": [
+    {
+      "kind": "wrong direction",
+      "image": "wrong_direction_1.png",
+      "caption": "wrong direction: ivr 2023-09-29, truth LONG, model says SHORT (top box double top at 0.94)"
+    },
+    {
+      "kind": "wrong direction",
+      "image": "wrong_direction_2.png",
+      "caption": "wrong direction: para 2023-09-28, truth LONG, model says NONE (top box double top at 0.85)"
+    },
+    {
+      "kind": "wrong direction",
+      "image": "wrong_direction_3.png",
+      "caption": "wrong direction: pypl 2023-09-29, truth LONG, model says NONE (top box double top at 0.83)"
+    },
+    {
+      "kind": "confident on a clean chart",
+      "image": "confident_on_a_clean_chart_1.png",
+      "caption": "confident on a clean chart: gnl 2023-09-28, truth NONE, model says NONE (top box double top at 0.63)"
+    },
+    {
+      "kind": "confident on a clean chart",
+      "image": "confident_on_a_clean_chart_2.png",
+      "caption": "confident on a clean chart: zm 2023-09-29, truth NONE, model says NONE (top box head and shoulders at 0.57)"
+    },
+    {
+      "kind": "confident on a clean chart",
+      "image": "confident_on_a_clean_chart_3.png",
+      "caption": "confident on a clean chart: etsy 2023-09-29, truth NONE, model says NONE (top box double top at 0.56)"
+    },
+    {
+      "kind": "missed pattern",
+      "image": "missed_pattern_1.png",
+      "caption": "missed pattern: acn 2023-09-28, truth LONG, model says NONE (top box double top at 0.10)"
+    },
+    {
+      "kind": "missed pattern",
+      "image": "missed_pattern_2.png",
+      "caption": "missed pattern: sqm 2023-09-28, truth SHORT, model says NONE (top box double top at 0.11)"
+    },
+    {
+      "kind": "missed pattern",
+      "image": "missed_pattern_3.png",
+      "caption": "missed pattern: eurusd-x 2023-09-28, truth SHORT, model says NONE (top box head and shoulders at 0.12)"
+    }
+  ]
+}
